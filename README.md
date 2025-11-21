@@ -3,7 +3,7 @@ Where_to_watch (WtW) is a web application that helps users instantly discover on
 
 ---
 
-# 🛣️ Roadmap
+# Roadmap
 
 ## **Phase 1 — Initial Setup**
 - Create GitHub repository.
