@@ -422,6 +422,74 @@ This confirms that:
 
 ---
 
+# Folder structure
+WtW/
+│
+├── manage.py
+├── db.sqlite3
+│
+├── .venv/
+│   ├── Include/
+│   ├── Lib/
+│   ├── Scripts/
+│   └── pyvenv.cfg
+│
+├── wtw/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── search/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│
+└── templates/
+    └── search/
+        └── home.html
+        
+# Useful Command Lines for PowerShell
+### Activate the Virtual Environment
+
+```
+.venv\Scripts\activate
+```
+
+This command activates the Python virtual environment located inside the project folder.
+When activated, your terminal prompt will change to show:
+```
+(.venv)
+```
+This ensures that Python and Django run inside the correct environment.
+
+### Show Contents of the Project Directory
+```
+dir F:\projects\WtW\
+```
+
+### Run the Django Development Server
+```
+python manage.py runserver
+```
+Starts Django’s built-in development server.
+After running this command, the terminal will show something like:
+```
+Starting development server at http://127.0.0.1:8000/
+```
+
+To stop the django server you:
+```
+CTRL + C
+```
+
 # End of Phase 1  
 The base project structure is complete and functional.
 
