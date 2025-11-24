@@ -12,7 +12,7 @@ Where_to_watch (WtW) is a web application that helps users instantly discover on
 ---
 
 ## **Phase 2 — API Integration**
-- Use JustWatch (unofficial) + TMDB (official) combo as APIs
+- Use JustWatch (unofficial) + TMDB (official) combo as APIs + https://www.movieofthenight.com/about/api/pricing
 - Create a Django service module to:
   - Search for a title
   - Fetch streaming availability by region
