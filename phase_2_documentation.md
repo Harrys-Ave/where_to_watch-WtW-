@@ -1,6 +1,31 @@
 # Where_to_Watch (WtW) – Phase 2 Documentation  
 **TMDB Integration & Service Layer Setup**
 
+-- Phase 2 Steps --
+
+1️⃣ Implement TMDB API service functions
+
+
+2️⃣ Add API key to Django settings
+
+
+3️⃣ Install requests
+
+
+4️⃣ TEST the functions in Django Shell
+
+
+5️⃣ Make sure both functions work together
+
+Get movie ID
+
+Fetch providers
+
+Check the JSON structure
+
+Confirm nothing crashes
+
+
 ---
 
 ## 1. Phase 2 Goal
