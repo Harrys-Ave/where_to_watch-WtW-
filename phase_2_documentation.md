@@ -139,3 +139,70 @@ from django.conf import settings
 TMDB_API_KEY = "YOUR_TMDB_API_KEY_HERE"
 
 -Then in code we can read it as: settings.TMDB_API_KEY.
+
+## 5. How to Test TMDB API Functions in Django
+```
+ Navigate to your project folder (if not already there)
+cd F:\projects\WtW
+
+ Activate the virtual environment
+.venv\Scripts\activate
+```
+
+(We can also do it in VSCode by oppening the terminal) 
+
+### Run Django Shell
+```
+python manage.py shell
+```
+
+### Import the TMDB service functions
+```
+from search.services.tmdb import search_movie, get_watch_providers
+```
+
+### Test the search_movie() function
+```
+results = search_movie("godfather")
+results[:3]   # show first 3 results
+```
+Expected output example:
+```
+[
+    {'id': 755450, 'title': 'Godfather', ...},
+    {'id': 238, 'title': 'The Godfather', ...},
+    {'id': 141460, 'title': 'Hong Kong Godfather', ...}
+]
+```
+
+### Extract the movie ID
+```
+movie_id = results[1]["id"]   # The real "The Godfather" has ID = 238
+movie_id
+```
+
+### Test the get_watch_providers() function
+For Greece 🇬🇷:
+```
+providers = get_watch_providers(movie_id, "GR")
+providers
+```
+Example output:
+```
+{
+ 'link': 'https://www.themoviedb.org/movie/238-the-godfather/watch?locale=GR',
+ 'rent': [
+     {'provider_name': 'Apple TV', ...},
+     {'provider_name': 'Google Play Movies', ...}
+ ],
+ 'buy': [
+     {'provider_name': 'Apple TV', ...},
+     {'provider_name': 'Google Play Movies', ...}
+ ],
+ 'flatrate': [
+     {'provider_name': 'Netflix', ...}
+ ]
+}
+```
+
+
