@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Where_to_Watch – Results</title>
+</head>
+<body>
+    <h1>Where_to_Watch – Results</h1>
+
+    <p><a href="{% url 'home' %}">Back to search</a></p>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if movie %}
+        <h2>{{ movie.title }}</h2>
+
+        {% if movie.release_date %}
+            <p>Release date: {{ movie.release_date }}</p>
+        {% endif %}
+
+        <p>Region: {{ region }}</p>
+
+        {% if providers %}
+            <h3>Streaming availability</h3>
+
+            <!-- FLATRATE SECTION -->
+            <h4>Streaming availability (subscription):</h4>
+
+            {% if providers.flatrate %}
+                <p>Available on the following streaming services:</p>
+                <ul>
+                    {% for provider in providers.flatrate %}
+                        <li>{{ provider.provider_name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Not on a streaming service yet.</p>
+            {% endif %}
+
+            <!-- RENT SECTION -->
+            <h4>Available to rent:</h4>
+            {% if providers.rent %}
+                <ul>
+                    {% for provider in providers.rent %}
+                        <li>{{ provider.provider_name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No rental options available.</p>
+            {% endif %}
+
+            <!-- BUY SECTION -->
+            <h4>Available to buy:</h4>
+            {% if providers.buy %}
+                <ul>
+                    {% for provider in providers.buy %}
+                        <li>{{ provider.provider_name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No purchase options available.</p>
+            {% endif %}
+
+            <!-- NO OPTIONS AT ALL -->
+            {% if not providers.flatrate and not providers.rent and not providers.buy %}
+                <p>No streaming offers found for this region.</p>
+            {% endif %}
+
+            <!-- LINK TO TMDB -->
+            {% if providers.link %}
+                <p>
+                    More info:
+                    <a href="{{ providers.link }}" target="_blank">
+                        TMDB – Where to watch
+                    </a>
+                </p>
+            {% endif %}
+
+        {% else %}
+            <p>No provider data available.</p>
+        {% endif %}
+
+    {% else %}
+        <p>No movie selected.</p>
+    {% endif %}
+</body>
+</html>
