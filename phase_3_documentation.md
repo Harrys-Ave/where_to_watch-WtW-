@@ -111,3 +111,6 @@ Visit in your browser:
 ```
 http://127.0.0.1:9999/
 ```
+
+To stop the Django development server, simply press:
+**CTRL + C**
